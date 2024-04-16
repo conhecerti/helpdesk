@@ -16,6 +16,7 @@ public class Tecnico extends Pessoa {
     @OneToMany(mappedBy = "tecnico")
     private List<Chamado> chamados = new ArrayList<>();
 
+
     public Tecnico() {
         super();
         addPerfil(Perfil.TECNICO);
