@@ -7,6 +7,7 @@ import com.pcrs.helpdesk.repositories.PessoaRepository;
 import com.pcrs.helpdesk.repositories.TecnicoRepository;
 import com.pcrs.helpdesk.services.exceptions.DataIntegrityViolationException;
 import com.pcrs.helpdesk.services.exceptions.ObjectNotFoundException;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,4 +53,11 @@ public class TecnicoService {
     }
 
 
+    public Tecnico update(Integer id, @Valid TecnicoDTO objDTO) {
+        objDTO.setId(id);
+        Tecnico oldObj = findById(id);
+        validaPorCpfEEmail(objDTO);
+        oldObj = new Tecnico(objDTO);
+        return tecnicoRepository.save(oldObj);
+    }
 }

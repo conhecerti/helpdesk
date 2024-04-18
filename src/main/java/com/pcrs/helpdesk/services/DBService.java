@@ -32,11 +32,11 @@ public class DBService {
         Tecnico t1 = new Tecnico(null, "Paulo", "paulo@tre-rr.jus.br", "67794882591", "12345678");
         t1.addPerfil(Perfil.ADMIN);
 
-        Tecnico t2 = new Tecnico(null, "Rafael", "rafael@tre-rr.jus.br", "124567852", "31313213");
+        Tecnico t2 = new Tecnico(null, "Rafael", "rafael@tre-rr.jus.br", "301.168.430-80", "31313213");
         t2.addPerfil(Perfil.TECNICO);
 
-        Cliente cl1 = new Cliente(null, "Linux Torvalds", "linux@torvalds.com", "123456789", "12345678");
-        Cliente cl2 = new Cliente(null, "Santos", "stic@tre-rr.jus.br", "1313131313", "25452");
+        Cliente cl1 = new Cliente(null, "Linux Torvalds", "linux@torvalds.com", "176.221.150-53", "12345678");
+        Cliente cl2 = new Cliente(null, "Santos", "stic@tre-rr.jus.br", "586.077.060-04", "25452");
 
         Chamado c1 = new Chamado(null, Prioridade.MEDIA, Status.ANDAMENTO, "Chamado 01", "Primeiro chamado", cl1, t1);
         Chamado c2 = new Chamado(null, Prioridade.ALTA, Status.ANDAMENTO, "Chamado 02", "Segundo chamado", cl2, t2);
