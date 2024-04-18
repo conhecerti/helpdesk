@@ -25,6 +25,7 @@ public class TecnicoDTO {
 
     public TecnicoDTO() {
         super();
+        addPerfil(Perfil.CLIENTE);
     }
 
     public TecnicoDTO(Tecnico obj) {
@@ -35,6 +36,7 @@ public class TecnicoDTO {
         this.senha = obj.getSenha();
         this.perfis = obj.getPerfis().stream().map(x -> x.getCodigo()).collect(Collectors.toSet());
         this.dataCriacao = obj.getDataCriacao();
+        addPerfil(Perfil.CLIENTE);
     }
 
     public Integer getId() {
