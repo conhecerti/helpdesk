@@ -9,9 +9,11 @@ import com.pcrs.helpdesk.domain.enums.Status;
 import com.pcrs.helpdesk.repositories.ChamadoRepository;
 import com.pcrs.helpdesk.resources.ChamadoResource;
 import com.pcrs.helpdesk.services.exceptions.ObjectNotFoundException;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,6 +50,10 @@ public class ChamadoService {
             chamado.setId(objDTO.getId());
         }
 
+        if(objDTO.getStatus().equals(2)) {
+            chamado.setDataFechamento(LocalDate.now());
+        }
+
         chamado.setTecnico(tecnico);
         chamado.setCliente(cliente);
         chamado.setPrioridade(Prioridade.toEnum(objDTO.getPrioridade()));
@@ -55,5 +61,12 @@ public class ChamadoService {
         chamado.setTitulo(objDTO.getTitulo());
         chamado.setObservacoes(objDTO.getObservacoes());
         return chamado;
+    }
+
+    public Chamado update(Integer id, @Valid ChamadoDTO objDTO) {
+        objDTO.setId(id);
+        Chamado objOld = findById(id);
+        objOld = newChamado(objDTO);
+        return chamadoRepository.save(objOld);
     }
 }
