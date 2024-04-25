@@ -3,7 +3,7 @@ package com.pcrs.helpdesk.domain.dtos;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.pcrs.helpdesk.domain.Tecnico;
 import com.pcrs.helpdesk.domain.enums.Perfil;
-import jakarta.validation.constraints.NotNull;
+import javax.validation.constraints.NotNull;
 
 
 import java.time.LocalDate;

@@ -5,11 +5,11 @@ import com.pcrs.helpdesk.domain.Cliente;
 import com.pcrs.helpdesk.domain.dtos.ClienteDTO;
 import com.pcrs.helpdesk.repositories.ClienteRepository;
 import com.pcrs.helpdesk.repositories.PessoaRepository;
-import com.pcrs.helpdesk.repositories.ClienteRepository;
 import com.pcrs.helpdesk.services.exceptions.DataIntegrityViolationException;
 import com.pcrs.helpdesk.services.exceptions.ObjectNotFoundException;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,6 +24,9 @@ public class ClienteService {
     @Autowired
     private PessoaRepository pessoaRepository;
 
+    @Autowired
+    private BCryptPasswordEncoder encoder;
+
     public Cliente findById(Integer id) {
         Optional<Cliente> obj = clienteRepository.findById(id);
         return obj.orElseThrow(()-> new ObjectNotFoundException("Objeto não encontrado! Id: " + id));
@@ -36,6 +39,7 @@ public class ClienteService {
 
     public Cliente save(ClienteDTO objDTO) {
         objDTO.setId(null);
+        objDTO.setSenha(encoder.encode(objDTO.getSenha()));
         validaPorCpfEEmail(objDTO);
         Cliente Cliente = new Cliente(objDTO);
         return clienteRepository.save(Cliente);

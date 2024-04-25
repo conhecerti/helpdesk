@@ -3,8 +3,8 @@ package com.pcrs.helpdesk.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pcrs.helpdesk.domain.dtos.TecnicoDTO;
 import com.pcrs.helpdesk.domain.enums.Perfil;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 import java.util.ArrayList;
 import java.util.List;

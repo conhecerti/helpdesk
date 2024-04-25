@@ -7,9 +7,8 @@ import com.pcrs.helpdesk.domain.dtos.ChamadoDTO;
 import com.pcrs.helpdesk.domain.enums.Prioridade;
 import com.pcrs.helpdesk.domain.enums.Status;
 import com.pcrs.helpdesk.repositories.ChamadoRepository;
-import com.pcrs.helpdesk.resources.ChamadoResource;
 import com.pcrs.helpdesk.services.exceptions.ObjectNotFoundException;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

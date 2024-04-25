@@ -4,9 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pcrs.helpdesk.domain.dtos.ClienteDTO;
 import com.pcrs.helpdesk.domain.dtos.TecnicoDTO;
 import com.pcrs.helpdesk.domain.enums.Perfil;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import java.util.ArrayList;
 import java.util.List;

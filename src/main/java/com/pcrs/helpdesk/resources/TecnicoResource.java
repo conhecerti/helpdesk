@@ -3,7 +3,7 @@ package com.pcrs.helpdesk.resources;
 import com.pcrs.helpdesk.domain.Tecnico;
 import com.pcrs.helpdesk.domain.dtos.TecnicoDTO;
 import com.pcrs.helpdesk.services.TecnicoService;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -2,7 +2,7 @@ package com.pcrs.helpdesk.resources.exceptions;
 
 import com.pcrs.helpdesk.services.exceptions.DataIntegrityViolationException;
 import com.pcrs.helpdesk.services.exceptions.ObjectNotFoundException;
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
