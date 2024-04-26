@@ -2,6 +2,7 @@ package com.pcrs.helpdesk.config;
 
 import java.util.Arrays;
 
+import com.pcrs.helpdesk.security.JWTAuthorizationFilter;
 import com.pcrs.helpdesk.security.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -43,6 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.cors().and().csrf().disable();
         http.addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtUtil));
+        http.addFilter(new JWTAuthorizationFilter(authenticationManager(),  jwtUtil, userDetailsService));
         http
                 .authorizeRequests()
                 .antMatchers(PUBLIC_MATCHERS)
